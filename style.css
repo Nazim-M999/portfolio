@@ -65,8 +65,8 @@
   --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
-  --space-20: 5rem;
-  --space-24: 6rem;
+  --space-20: 3.5rem;
+  --space-24: 4.5rem;
 
   /* Rayons */
   --radius-sm: 0.375rem;
@@ -163,6 +163,9 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   transition: background-color var(--transition-base), color var(--transition-base);
+  /* Empêche un débordement horizontal causé par le carrousel "plein écran"
+     (cf. .carousel) sur certains navigateurs (arrondi des unités vw). */
+  overflow-x: hidden;
 }
 
 /* ─── UTILITAIRES ─── */
@@ -942,8 +945,19 @@ p {
 }
 
 /* ─── PROJETS PRINCIPAUX (carrousel) ─── */
+/* Le carrousel s'étend sur toute la largeur de l'écran (technique
+   "full-bleed") pour que les flèches puissent se positionner aux deux
+   extrémités de l'écran, en dehors des boîtes projets, plutôt que collées
+   contre elles. Le contenu (les cartes) reste lui centré et limité à
+   --container-max via .carousel-track. */
 .carousel {
   position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  /* Décalage du bouton par rapport au bord de l'écran + largeur du bouton
+     (44px) + petite marge : espace minimal à réserver pour que les flèches
+     ne chevauchent jamais la première/dernière carte. */
+  --carousel-btn-clearance: calc(var(--space-4) + 44px + var(--space-3));
 }
 
 .carousel-track {
@@ -952,11 +966,14 @@ p {
   list-style: none;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-padding-left: var(--space-1);
+  scroll-padding-left: var(--carousel-btn-clearance);
   -webkit-overflow-scrolling: touch;
-  /* Espace pour que l'anneau de focus (clavier) du track ne soit pas rogné */
-  padding: var(--space-1) var(--space-1) var(--space-4);
-  margin: calc(-1 * var(--space-1));
+  max-width: var(--container-max);
+  margin: 0 auto;
+  /* Padding horizontal = espace réservé aux flèches (largeur du bouton +
+     son décalage par rapport au bord de l'écran + une petite marge), pour
+     que les cartes ne se retrouvent jamais sous les flèches. */
+  padding: var(--space-1) var(--carousel-btn-clearance) var(--space-4);
   scrollbar-width: thin;
 }
 
@@ -972,11 +989,11 @@ p {
 
 .carousel-btn {
   position: absolute;
-  /* Centré verticalement sur l'image (16:9) plutôt qu'à une position fixe
-     en pixels : reste juste au milieu de la photo à n'importe quelle
-     largeur d'écran, puisque la hauteur de l'image dépend de la largeur
-     de la carte (min(420px, 85vw) × 9/16). */
-  top: calc((min(420px, 85vw) * 9 / 16 - 44px) / 2);
+  /* Positionné juste sous l'image (16:9) plutôt qu'au milieu de celle-ci :
+     reste toujours au bord inférieur de la photo à n'importe quelle largeur
+     d'écran, puisque la hauteur de l'image dépend de la largeur de la carte
+     (min(420px, 85vw) × 9/16). */
+  top: calc(min(420px, 85vw) * 9 / 16 - 22px);
   z-index: 5;
   width: 44px;
   height: 44px;
@@ -1018,16 +1035,17 @@ p {
   cursor: default;
 }
 
-/* Positionnés près des bords du conteneur (pas de la carte) : comme le
-   padding du conteneur s'adapte déjà à chaque taille d'écran (cf.
-   .container), les flèches restent toujours proches des bords gauche et
-   droit de l'écran, jamais collées contre, à n'importe quelle largeur. */
+/* Positionnés près des bords de l'écran (le carrousel est en plein-bleed,
+   cf. .carousel) plutôt que collées aux cartes : restent accessibles et ne
+   chevauchent jamais les boîtes projets, à n'importe quelle largeur. */
 .carousel-btn--prev {
-  left: var(--space-2);
+  left: calc(var(--space-4) + env(safe-area-inset-left));
 }
 
 .carousel-btn--next {
-  right: var(--space-2);
+  /* Décalée pour ne pas chevaucher #a11y-toggle (bouton d'accessibilité fixe,
+     centré verticalement à droite sur ces largeurs, cf. #a11y-panel). */
+  right: calc(44px + var(--space-2) + env(safe-area-inset-right));
 }
 
 .project-card {
@@ -1693,8 +1711,8 @@ p {
 /* Mobile */
 @media (max-width: 768px) {
   :root {
-    --space-20: 4rem;
-    --space-24: 5rem;
+    --space-20: 3rem;
+    --space-24: 4rem;
   }
 
   h2 { font-size: var(--text-3xl); }
@@ -1874,6 +1892,13 @@ p {
     transform: none;
   }
 
+  /* #a11y-toggle n'est plus centré verticalement à droite à cette largeur
+     (cf. règle #a11y-panel ci-dessus) : la flèche peut revenir au bord,
+     symétrique avec .carousel-btn--prev. */
+  .carousel-btn--next {
+    right: calc(var(--space-4) + env(safe-area-inset-right));
+  }
+
   #a11y-options {
     right: 0;
     top: auto;
@@ -1909,8 +1934,8 @@ p {
   }
 
   :root {
-    --space-20: 3rem;
-    --space-24: 3.5rem;
+    --space-20: 2.5rem;
+    --space-24: 3rem;
   }
 
   .section-header {
