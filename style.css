@@ -595,6 +595,10 @@ p {
   letter-spacing: -0.02em;
 }
 
+.logo-name-accent {
+  color: var(--color-primary-dark);
+}
+
 #main-nav {
   flex: 1;
   display: flex;
