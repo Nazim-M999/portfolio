@@ -1610,6 +1610,21 @@ p {
     overflow: hidden;
   }
 
+  /* Cause réelle du bug "le menu ne couvre pas l'écran" : #site-header a
+     un backdrop-filter, et un ancêtre avec backdrop-filter/filter/transform
+     redéfinit le bloc de positionnement de ses descendants en
+     position:fixed (comme le ferait un position:relative pour de
+     l'absolute). #nav-links se positionnait donc par rapport à la boîte
+     du header (72px de haut) au lieu de l'écran entier, et s'écrasait en
+     une bande quasi nulle. On retire le filtre pendant que le menu est
+     ouvert : le header garde un fond opaque, le panneau se positionne
+     enfin par rapport au viewport. */
+  body.nav-open #site-header {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background-color: var(--color-bg);
+  }
+
   #nav-links {
     display: none;
     position: fixed;
@@ -1735,13 +1750,12 @@ p {
     align-items: center;
   }
 
-  /* Coin opposé au panneau d'accessibilité : les deux boutons flottants
-     ne peuvent ainsi jamais se chevaucher, quelle que soit leur taille
-     réelle ou la présence d'une barre système (encoche, etc.). */
+  /* Empilé au-dessus du bouton accessibilité, même colonne à droite :
+     44px (hauteur du bouton accessibilité) + 12px d'écart de sécurité. */
   .back-to-top {
-    left: calc(var(--space-4) + env(safe-area-inset-left));
-    right: auto;
-    bottom: calc(var(--space-4) + env(safe-area-inset-bottom));
+    right: calc(var(--space-4) + env(safe-area-inset-right));
+    left: auto;
+    bottom: calc(var(--space-4) + 44px + var(--space-3) + env(safe-area-inset-bottom));
   }
 }
 
