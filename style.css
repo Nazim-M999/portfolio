@@ -1018,12 +1018,16 @@ p {
   cursor: default;
 }
 
+/* Positionnés près des bords du conteneur (pas de la carte) : comme le
+   padding du conteneur s'adapte déjà à chaque taille d'écran (cf.
+   .container), les flèches restent toujours proches des bords gauche et
+   droit de l'écran, jamais collées contre, à n'importe quelle largeur. */
 .carousel-btn--prev {
-  left: calc(-1 * var(--space-5));
+  left: var(--space-2);
 }
 
 .carousel-btn--next {
-  right: calc(-1 * var(--space-5));
+  right: var(--space-2);
 }
 
 .project-card {
@@ -1851,23 +1855,6 @@ p {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  /* Chaque cercle est centré exactement sur le bord de la boîte (moitié
-     dedans, moitié dehors) : décalage de -22px (la moitié des 44px du
-     bouton) par rapport au bord gauche pour "prev", et symétriquement
-     par rapport au bord droit (= largeur de la carte) pour "next". La
-     flèche "suivant" utilise "left" calculé depuis la largeur de la
-     carte plutôt que "right" calculé depuis la largeur du carrousel
-     (qui inclut l'aperçu de la carte suivante) — sinon les deux cercles
-     ne seraient pas à la même distance des bords de la boîte. */
-  .carousel-btn--prev {
-    left: -22px;
-  }
-
-  .carousel-btn--next {
-    left: calc(min(420px, 85vw) - 22px);
-    right: auto;
-  }
-
   .about-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1955,20 +1942,6 @@ p {
   .hero-actions .btn,
   .availability-actions .btn {
     width: 100%;
-  }
-
-  /* En dessous de 480px, le padding du conteneur n'est plus que de 16px
-     (var(--space-4)) : un décalage de -22px ferait déborder le cercle
-     hors de l'écran et provoquerait un défilement horizontal. On limite
-     donc le débordement à 16px ici, au lieu de 22px, pour rester pile
-     dans la zone visible tout en gardant le cercle au plus près du bord
-     de la boîte. */
-  .carousel-btn--prev {
-    left: calc(-1 * var(--space-4));
-  }
-
-  .carousel-btn--next {
-    left: calc(min(420px, 85vw) - 44px + var(--space-4));
   }
 }
 
