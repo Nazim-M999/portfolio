@@ -1851,19 +1851,20 @@ p {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  /* Sur petit écran, les flèches se posent sur la photo (pas de place
-     pour flotter à l'extérieur de la carte) : un espace de 12px évite
-     qu'elles ne touchent le coin arrondi de l'image. La flèche "suivant"
-     est positionnée avec "left" (calculé depuis la largeur de la carte)
-     plutôt que "right" (calculé depuis la largeur du carrousel, qui
-     inclut l'aperçu de la carte suivante) : les deux flèches encadrent
-     ainsi exactement la largeur d'une boîte de projet, pas plus. */
+  /* Chaque cercle est centré exactement sur le bord de la boîte (moitié
+     dedans, moitié dehors) : décalage de -22px (la moitié des 44px du
+     bouton) par rapport au bord gauche pour "prev", et symétriquement
+     par rapport au bord droit (= largeur de la carte) pour "next". La
+     flèche "suivant" utilise "left" calculé depuis la largeur de la
+     carte plutôt que "right" calculé depuis la largeur du carrousel
+     (qui inclut l'aperçu de la carte suivante) — sinon les deux cercles
+     ne seraient pas à la même distance des bords de la boîte. */
   .carousel-btn--prev {
-    left: var(--space-3);
+    left: -22px;
   }
 
   .carousel-btn--next {
-    left: calc(min(420px, 85vw) - 44px - var(--space-3));
+    left: calc(min(420px, 85vw) - 22px);
     right: auto;
   }
 
@@ -1954,6 +1955,20 @@ p {
   .hero-actions .btn,
   .availability-actions .btn {
     width: 100%;
+  }
+
+  /* En dessous de 480px, le padding du conteneur n'est plus que de 16px
+     (var(--space-4)) : un décalage de -22px ferait déborder le cercle
+     hors de l'écran et provoquerait un défilement horizontal. On limite
+     donc le débordement à 16px ici, au lieu de 22px, pour rester pile
+     dans la zone visible tout en gardant le cercle au plus près du bord
+     de la boîte. */
+  .carousel-btn--prev {
+    left: calc(-1 * var(--space-4));
+  }
+
+  .carousel-btn--next {
+    left: calc(min(420px, 85vw) - 44px + var(--space-4));
   }
 }
 
