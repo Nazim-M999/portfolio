@@ -972,7 +972,11 @@ p {
 
 .carousel-btn {
   position: absolute;
-  top: 140px;
+  /* Centré verticalement sur l'image (16:9) plutôt qu'à une position fixe
+     en pixels : reste juste au milieu de la photo à n'importe quelle
+     largeur d'écran, puisque la hauteur de l'image dépend de la largeur
+     de la carte (min(420px, 85vw) × 9/16). */
+  top: calc((min(420px, 85vw) * 9 / 16 - 44px) / 2);
   z-index: 5;
   width: 44px;
   height: 44px;
@@ -1837,14 +1841,15 @@ p {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  /* Sur petit écran, les flèches restent dans la zone visible plutôt que
-     de dépasser dans le padding du conteneur. */
+  /* Sur petit écran, les flèches se posent sur la photo (pas de place
+     pour flotter à l'extérieur de la carte) : un espace de 12px évite
+     qu'elles ne touchent le coin arrondi de l'image. */
   .carousel-btn--prev {
-    left: var(--space-2);
+    left: var(--space-3);
   }
 
   .carousel-btn--next {
-    right: var(--space-2);
+    right: var(--space-3);
   }
 
   .about-stats {
