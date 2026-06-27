@@ -1504,6 +1504,53 @@ p {
   color: var(--color-text-light);
 }
 
+/* ─── BOUTON RETOUR EN HAUT ───
+   Placé ici, avant la section RESPONSIVE : les media queries qui suivent
+   doivent apparaître après cette règle de base dans le fichier pour
+   pouvoir la surcharger (à spécificité égale, c'est l'ordre dans le
+   fichier qui tranche, peu importe que la condition @media soit remplie
+   ou non). C'est cet ordre qui était fautif : la règle de base se
+   trouvait après les media queries et regagnait donc la main sur mobile,
+   replaçant le bouton exactement sous le bouton accessibilité. */
+.back-to-top {
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 860;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity var(--transition-base), transform var(--transition-base),
+    visibility var(--transition-base), background-color var(--transition-fast),
+    color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  background: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+
 /* ─── RESPONSIVE ─── */
 
 /* Tablette */
@@ -1830,46 +1877,6 @@ p {
   .availability-actions .btn {
     width: 100%;
   }
-}
-
-/* ─── BOUTON RETOUR EN HAUT ─── */
-.back-to-top {
-  position: fixed;
-  right: var(--space-4);
-  bottom: var(--space-4);
-  z-index: 860;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-bg);
-  color: var(--color-primary);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
-  box-shadow: var(--shadow-lg);
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(12px);
-  pointer-events: none;
-  transition: opacity var(--transition-base), transform var(--transition-base),
-    visibility var(--transition-base), background-color var(--transition-fast),
-    color var(--transition-fast), border-color var(--transition-fast);
-}
-
-.back-to-top.is-visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.back-to-top:hover,
-.back-to-top:focus-visible {
-  background: var(--color-primary);
-  color: #ffffff;
-  border-color: var(--color-primary);
 }
 
 /* ─── IMPRESSION ─── */
