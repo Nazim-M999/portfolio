@@ -941,18 +941,75 @@ p {
   margin-bottom: var(--space-4);
 }
 
-/* ─── PROJETS ─── */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-6);
+/* ─── PROJETS PRINCIPAUX (carrousel) ─── */
+.carousel {
+  position: relative;
 }
 
-.project-featured {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 0;
+.carousel-track {
+  display: flex;
+  gap: var(--space-6);
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: var(--space-1);
+  -webkit-overflow-scrolling: touch;
+  /* Espace pour que l'anneau de focus (clavier) du track ne soit pas rogné */
+  padding: var(--space-1) var(--space-1) var(--space-4);
+  margin: calc(-1 * var(--space-1));
+  scrollbar-width: thin;
+}
+
+.carousel-slide {
+  flex: 0 0 auto;
+  width: min(420px, 85vw);
+  scroll-snap-align: start;
+}
+
+.carousel-slide .project-card {
+  height: 100%;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 140px;
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.carousel-btn:hover,
+.carousel-btn:focus-visible {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.carousel-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.carousel-btn:disabled:hover {
+  background: var(--color-bg);
+  color: var(--color-primary);
+}
+
+.carousel-btn--prev {
+  left: calc(-1 * var(--space-5));
+}
+
+.carousel-btn--next {
+  right: calc(-1 * var(--space-5));
 }
 
 .project-card {
@@ -980,15 +1037,15 @@ p {
   background: linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-border) 100%);
 }
 
-.project-featured .project-img-wrapper {
-  min-height: 300px;
-}
-
-/* Hauteur fixe (et non un ratio) pour que toutes les vignettes de la grille
-   gardent la même taille à l'écran, quelles que soient les proportions
-   réelles des images sources (paysage, presque carrée, etc.). */
-.project-card:not(.project-featured) .project-img-wrapper {
-  height: 230px;
+/* Ratio fixe en 16:9 (au lieu d'une hauteur fixe en pixels) : la boîte
+   garde toujours les mêmes proportions que les images recommandées
+   (1600×900), à n'importe quelle largeur d'écran. Avec object-fit:cover
+   et un ratio de boîte identique au ratio de l'image, rien n'est rogné.
+   Toutes les cartes (principales et complémentaires) partagent la même
+   taille — aucun projet n'est mis en avant visuellement par rapport
+   aux autres. */
+.project-img-wrapper {
+  aspect-ratio: 16 / 9;
 }
 
 .project-img {
@@ -1435,7 +1492,7 @@ p {
 
 .form-group input:invalid:not(:placeholder-shown),
 .form-group textarea:invalid:not(:placeholder-shown) {
-  border-color: var(--color-error);
+  border-color: var(--color-primary);
 }
 
 .form-error {
@@ -1600,10 +1657,6 @@ p {
 
   .about-stats {
     grid-template-columns: repeat(4, 1fr);
-  }
-
-  .project-featured {
-    grid-template-columns: 1fr;
   }
 
   .availability-card {
@@ -1778,15 +1831,20 @@ p {
   }
 
   .skills-grid,
-  .projects-grid,
   .extra-grid,
   .a11y-grid,
   .contact-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .project-featured {
-    grid-column: auto;
+  /* Sur petit écran, les flèches restent dans la zone visible plutôt que
+     de dépasser dans le padding du conteneur. */
+  .carousel-btn--prev {
+    left: var(--space-2);
+  }
+
+  .carousel-btn--next {
+    right: var(--space-2);
   }
 
   .about-stats {

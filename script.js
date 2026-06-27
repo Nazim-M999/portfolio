@@ -181,6 +181,60 @@ const NAV = {
 };
 
 /* =========================================================
+   CARROUSEL "PROJETS PRINCIPAUX"
+   Défilement par glissement (scroll natif + scroll-snap) ou via les
+   flèches ; les boutons se désactivent en début/fin de liste.
+   ========================================================= */
+
+function initCarousels() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    || document.body.dataset.animations === 'false';
+
+  document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+    const track = carousel.querySelector('.carousel-track');
+    const prevBtn = carousel.querySelector('.carousel-btn--prev');
+    const nextBtn = carousel.querySelector('.carousel-btn--next');
+    if (!track || !prevBtn || !nextBtn) return;
+
+    const step = () => {
+      const slide = track.querySelector('.carousel-slide');
+      const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      return slide ? slide.getBoundingClientRect().width + gap : track.clientWidth;
+    };
+
+    const scrollByStep = (direction) => {
+      track.scrollBy({
+        left: direction * step(),
+        behavior: reduceMotion ? 'auto' : 'smooth',
+      });
+    };
+
+    const updateButtons = () => {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      prevBtn.disabled = track.scrollLeft <= 1;
+      nextBtn.disabled = track.scrollLeft >= maxScroll - 1;
+    };
+
+    prevBtn.addEventListener('click', () => scrollByStep(-1));
+    nextBtn.addEventListener('click', () => scrollByStep(1));
+
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        scrollByStep(1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        scrollByStep(-1);
+      }
+    });
+
+    track.addEventListener('scroll', updateButtons, { passive: true });
+    window.addEventListener('resize', updateButtons);
+    updateButtons();
+  });
+}
+
+/* =========================================================
    NAVIGATION ACTIVE (aria-current) + FIL D'ARIANE DYNAMIQUE
    ========================================================= */
 
@@ -484,6 +538,7 @@ function trapFocus(container) {
 document.addEventListener('DOMContentLoaded', () => {
   A11Y.init();
   NAV.init();
+  initCarousels();
   SCROLL_SPY.init();
   initHeaderScroll();
   initBackToTop();

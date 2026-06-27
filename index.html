@@ -367,148 +367,166 @@
           <p class="section-intro">Des projets réels, développés pour de vraies organisations ou dans un contexte académique structuré.</p>
         </div>
 
-        <div class="projects-grid">
+        <div class="carousel" data-carousel="projects">
+          <button type="button" class="carousel-btn carousel-btn--prev" aria-label="Projet précédent">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
 
-          <!-- PROJET 1 — CBF -->
-          <article class="project-card project-featured" aria-labelledby="proj-cbf-title">
-            <div class="project-img-wrapper">
-              <img
-                src="assets/images/projet-cbf.png"
-                alt="Page d'accueil du site CBF avec navigation, bouton accessibilité et hero section"
-                width="1280"
-                height="720"
-                loading="lazy"
-                class="project-img"
-              />
-              <span class="project-badge">En ligne</span>
-            </div>
-            <div class="project-content">
-              <p class="project-type">Site web accessible · Projet réel · Master MIASHS</p>
-              <h3 id="proj-cbf-title">Site accessible – CBF</h3>
-              <p class="project-desc">
-                Conception et développement complet d'un site web pour le Réseau Citoyen
-                de la Coordination des Berbères de France — partie publique, interface
-                d'administration, base de données, conformité RGAA/WCAG 2.1 AA.
-              </p>
-              <ul class="tag-list" aria-label="Technologies utilisées">
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>JavaScript</li>
-                <li>PHP</li>
-                <li>MySQL</li>
-                <li>RGAA</li>
-              </ul>
-              <div class="project-highlights">
-                <span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg> Projet réel (association)</span>
-                <span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg> Site en ligne</span>
-                <span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg> Admin + BDD</span>
-                <span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg> Audit RGAA 21/25</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://handiman.univ-paris8.fr/~nazim/cbf/" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Voir le site CBF en ligne (nouvelle fenêtre)">Voir le site</a>
-                <a href="https://github.com/Nazim-M999/site_CBF" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Code source CBF sur GitHub (nouvelle fenêtre)">Code</a>
-              </div>
-            </div>
-          </article>
+          <ul class="carousel-track" role="list" tabindex="0" aria-label="Projets principaux, faites glisser ou utilisez les flèches">
 
-          <!-- PROJET 2 — RSE -->
-          <article class="project-card" aria-labelledby="proj-rse-title">
-            <div class="project-img-wrapper">
-              <img
-                src="assets/images/projet-rse.png"
-                alt="Interface de la plateforme RSE avec tableau de bord, formulaire d'ajout d'action et liste d'actions"
-                width="1280"
-                height="720"
-                loading="lazy"
-                class="project-img"
-              />
-            </div>
-            <div class="project-content">
-              <p class="project-type">Application web · Projet fin d'études · Bachelor ECE</p>
-              <h3 id="proj-rse-title">Plateforme RSE</h3>
-              <p class="project-desc">
-                Application web full-stack pour gérer et suivre des actions RSE : tableau
-                de bord, planning, statistiques, newsletters, authentification, API REST
-                avec React front-end et Node.js/Express back-end.
-              </p>
-              <ul class="tag-list" aria-label="Technologies utilisées">
-                <li>React</li>
-                <li>Node.js</li>
-                <li>Express.js</li>
-                <li>MySQL</li>
-                <li>Axios</li>
-                <li>REST API</li>
-              </ul>
-              <div class="project-actions">
-                <a href="https://github.com/Nazim-M999/RSE_Project" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Code source Plateforme RSE sur GitHub (nouvelle fenêtre)">Code</a>
-              </div>
-            </div>
-          </article>
+            <!-- PROJET 1 — CBF -->
+            <li class="carousel-slide">
+              <article class="project-card" aria-labelledby="proj-cbf-title">
+                <div class="project-img-wrapper">
+                  <img
+                    src="assets/images/projet-cbf.png"
+                    alt="Page d'accueil du site CBF avec navigation, bouton accessibilité et hero section"
+                    width="1280"
+                    height="720"
+                    loading="lazy"
+                    class="project-img"
+                  />
+                  <span class="project-badge">En ligne</span>
+                </div>
+                <div class="project-content">
+                  <p class="project-type">Site web accessible · Projet réel · Master MIASHS</p>
+                  <h3 id="proj-cbf-title">Site accessible – CBF</h3>
+                  <p class="project-desc">
+                    Conception et développement complet d'un site web pour le Réseau Citoyen
+                    de la Coordination des Berbères de France — partie publique, interface
+                    d'administration, base de données, conformité RGAA/WCAG 2.1 AA.
+                  </p>
+                  <ul class="tag-list" aria-label="Technologies utilisées">
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript</li>
+                    <li>PHP</li>
+                    <li>MySQL</li>
+                    <li>RGAA</li>
+                  </ul>
+                  <div class="project-highlights">
+                    <span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg> Projet réel (association)</span>
+                    <span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg> Site en ligne</span>
+                    <span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg> Admin + BDD</span>
+                    <span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg> Audit RGAA 21/25</span>
+                  </div>
+                  <div class="project-actions">
+                    <a href="https://handiman.univ-paris8.fr/~nazim/cbf/" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Voir le site CBF en ligne (nouvelle fenêtre)">Voir le site</a>
+                    <a href="https://github.com/Nazim-M999/site_CBF" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Code source CBF sur GitHub (nouvelle fenêtre)">Code</a>
+                  </div>
+                </div>
+              </article>
+            </li>
 
-          <!-- PROJET 3 — ManagePass -->
-          <article class="project-card" aria-labelledby="proj-managepass-title">
-            <div class="project-img-wrapper">
-              <img
-                src="assets/images/projet-managepass.jpeg"
-                alt="Écran de l'application ManagePass avec illustration de cadenas et bouton d'action"
-                width="760"
-                height="1600"
-                loading="lazy"
-                class="project-img project-img-contain"
-              />
-            </div>
-            <div class="project-content">
-              <p class="project-type">Application mobile Android · Bachelor ECE</p>
-              <h3 id="proj-managepass-title">ManagePass</h3>
-              <p class="project-desc">
-                Application Android de gestion sécurisée de mots de passe. Interface
-                mobile moderne, stockage sécurisé des identifiants, conception UX
-                orientée facilité d'usage.
-              </p>
-              <ul class="tag-list" aria-label="Technologies utilisées">
-                <li>Kotlin</li>
-                <li>Android Studio</li>
-                <li>Mobile UX</li>
-              </ul>
-              <div class="project-actions">
-                <a href="https://github.com/Nazim-M999/managepass" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Code source ManagePass sur GitHub (nouvelle fenêtre)">Code</a>
-              </div>
-            </div>
-          </article>
+            <!-- PROJET 2 — RSE -->
+            <li class="carousel-slide">
+              <article class="project-card" aria-labelledby="proj-rse-title">
+                <div class="project-img-wrapper">
+                  <img
+                    src="assets/images/projet-rse.png"
+                    alt="Interface de la plateforme RSE avec tableau de bord, formulaire d'ajout d'action et liste d'actions"
+                    width="1280"
+                    height="720"
+                    loading="lazy"
+                    class="project-img"
+                  />
+                </div>
+                <div class="project-content">
+                  <p class="project-type">Application web · Projet fin d'études · Bachelor ECE</p>
+                  <h3 id="proj-rse-title">Plateforme RSE</h3>
+                  <p class="project-desc">
+                    Application web full-stack pour gérer et suivre des actions RSE : tableau
+                    de bord, planning, statistiques, newsletters, authentification, API REST
+                    avec React front-end et Node.js/Express back-end.
+                  </p>
+                  <ul class="tag-list" aria-label="Technologies utilisées">
+                    <li>React</li>
+                    <li>Node.js</li>
+                    <li>Express.js</li>
+                    <li>MySQL</li>
+                    <li>Axios</li>
+                    <li>REST API</li>
+                  </ul>
+                  <div class="project-actions">
+                    <a href="https://github.com/Nazim-M999/RSE_Project" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Code source Plateforme RSE sur GitHub (nouvelle fenêtre)">Code</a>
+                  </div>
+                </div>
+              </article>
+            </li>
 
-          <!-- PROJET 4 — Unis Pour Elle -->
-          <article class="project-card" aria-labelledby="proj-upe-title">
-            <div class="project-img-wrapper">
-              <img
-                src="assets/images/projet-unispourelle.png"
-                alt="Maquette responsive de la plateforme Unis Pour Elle avec header, navigation, hero section et identité visuelle rose"
-                width="1280"
-                height="720"
-                loading="lazy"
-                class="project-img"
-              />
-            </div>
-            <div class="project-content">
-              <p class="project-type">Conception UX/UI · Master MIASHS</p>
-              <h3 id="proj-upe-title">Unis Pour Elle</h3>
-              <p class="project-desc">
-                Conception UX/UI d'une plateforme de soutien pour les personnes touchées
-                par le cancer du sein. Approche Design Thinking, personas, heuristiques
-                de Nielsen, maquettes responsive sous Figma.
-              </p>
-              <ul class="tag-list" aria-label="Méthodes et outils utilisés">
-                <li>Figma</li>
-                <li>Design Thinking</li>
-                <li>IHM</li>
-                <li>Personas</li>
-                <li>Prototypage</li>
-              </ul>
-              <div class="project-actions">
-                <a href="https://www.figma.com/design/VbbGmahZPiVhiwxkzpbS0t/Unis-pour-elle?node-id=0-1&t=Uvik6Ik59yh30u9j-1" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Voir la maquette Unis Pour Elle sur Figma (nouvelle fenêtre)">Voir la maquette</a>
-              </div>
-            </div>
-          </article>
+            <!-- PROJET 3 — ManagePass -->
+            <li class="carousel-slide">
+              <article class="project-card" aria-labelledby="proj-managepass-title">
+                <div class="project-img-wrapper">
+                  <img
+                    src="assets/images/projet-managepass.png"
+                    alt="Présentation de l'application ManagePass : écran de gestion des identifiants et illustration de sécurité (cadenas, bouclier)"
+                    width="1672"
+                    height="941"
+                    loading="lazy"
+                    class="project-img"
+                  />
+                </div>
+                <div class="project-content">
+                  <p class="project-type">Application mobile Android · Bachelor ECE</p>
+                  <h3 id="proj-managepass-title">ManagePass</h3>
+                  <p class="project-desc">
+                    Application Android de gestion sécurisée de mots de passe. Interface
+                    mobile moderne, stockage sécurisé des identifiants, conception UX
+                    orientée facilité d'usage.
+                  </p>
+                  <ul class="tag-list" aria-label="Technologies utilisées">
+                    <li>Kotlin</li>
+                    <li>Android Studio</li>
+                    <li>Mobile UX</li>
+                  </ul>
+                  <div class="project-actions">
+                    <a href="https://github.com/Nazim-M999/managepass" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Code source ManagePass sur GitHub (nouvelle fenêtre)">Code</a>
+                  </div>
+                </div>
+              </article>
+            </li>
 
+            <!-- PROJET 4 — Unis Pour Elle -->
+            <li class="carousel-slide">
+              <article class="project-card" aria-labelledby="proj-upe-title">
+                <div class="project-img-wrapper">
+                  <img
+                    src="assets/images/projet-unispourelle.png"
+                    alt="Maquette responsive de la plateforme Unis Pour Elle avec header, navigation, hero section et identité visuelle rose"
+                    width="1280"
+                    height="720"
+                    loading="lazy"
+                    class="project-img"
+                  />
+                </div>
+                <div class="project-content">
+                  <p class="project-type">Conception UX/UI · Master MIASHS</p>
+                  <h3 id="proj-upe-title">Unis Pour Elle</h3>
+                  <p class="project-desc">
+                    Conception UX/UI d'une plateforme de soutien pour les personnes touchées
+                    par le cancer du sein. Approche Design Thinking, personas, heuristiques
+                    de Nielsen, maquettes responsive sous Figma.
+                  </p>
+                  <ul class="tag-list" aria-label="Méthodes et outils utilisés">
+                    <li>Figma</li>
+                    <li>Design Thinking</li>
+                    <li>IHM</li>
+                    <li>Personas</li>
+                    <li>Prototypage</li>
+                  </ul>
+                  <div class="project-actions">
+                    <a href="https://www.figma.com/design/VbbGmahZPiVhiwxkzpbS0t/Unis-pour-elle?node-id=0-1&t=Uvik6Ik59yh30u9j-1" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Voir la maquette Unis Pour Elle sur Figma (nouvelle fenêtre)">Voir la maquette</a>
+                  </div>
+                </div>
+              </article>
+            </li>
+
+          </ul>
+
+          <button type="button" class="carousel-btn carousel-btn--next" aria-label="Projet suivant">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
         </div>
       </div>
     </section>
@@ -555,7 +573,7 @@
           <article class="project-card extra-card" aria-labelledby="proj-pilulier-title">
             <div class="project-img-wrapper">
               <img
-                src="assets/images/projet-pillulier.webp"
+                src="assets/images/projet-pillulier.png"
                 alt="Pilulier accessible imprimé en 3D avec quatre compartiments colorés et pictogrammes en relief"
                 width="1328"
                 height="613"
