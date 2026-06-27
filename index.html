@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio de Nazim Mellouk – Développement d'applications, UX/UI et accessibilité numérique. Alternance M2 recherchée à partir de septembre 2026 en Île-de-France." />
+  <meta name="author" content="Nazim Mellouk" />
+  <meta name="keywords" content="développeur web, UX/UI, accessibilité numérique, RGAA, WCAG, alternance, React, PHP, Kotlin, Paris" />
+  <meta name="theme-color" content="#2563EB" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nazim Mellouk – Développeur & UX/Accessibilité" />
+  <meta property="og:description" content="Je conçois et développe des solutions web et mobiles centrées utilisateur, avec une attention particulière à l'accessibilité numérique." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://handiman.univ-paris8.fr/~nazim/portfolio-nazimmellouk/" />
+  <meta property="og:image" content="https://handiman.univ-paris8.fr/~nazim/portfolio-nazimmellouk/assets/images/og-image.png" />
+
+  <link rel="canonical" href="https://handiman.univ-paris8.fr/~nazim/portfolio-nazimmellouk/" />
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/icons/favicon.png" />
+
+  <title>Nazim Mellouk – Développement · UX/UI · Accessibilité</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-animations="true">
+
+  <!-- ===== SKIP LINK ===== -->
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <!-- ===== MENU ACCESSIBILITÉ ===== -->
+  <div id="a11y-panel" role="complementary" aria-label="Panneau d'accessibilité">
+    <button
+      id="a11y-toggle"
+      aria-expanded="false"
+      aria-controls="a11y-options"
+      aria-label="Ouvrir les options d'accessibilité"
+      title="Accessibilité"
+    >
+      <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+    </button>
+    <div id="a11y-options" hidden>
+      <h2 id="a11y-heading">Accessibilité</h2>
+      <div role="group" aria-labelledby="a11y-heading">
+        <button class="a11y-btn" id="btn-text-plus" aria-label="Augmenter la taille du texte">A+</button>
+        <button class="a11y-btn" id="btn-text-minus" aria-label="Diminuer la taille du texte">A−</button>
+        <button class="a11y-btn" id="btn-contrast" aria-pressed="false">Contraste</button>
+        <button class="a11y-btn" id="btn-dark" aria-pressed="false">Mode sombre</button>
+        <button class="a11y-btn" id="btn-no-anim" aria-pressed="false">Réduire animations</button>
+        <button class="a11y-btn" id="btn-underline" aria-pressed="false">Souligner liens</button>
+        <button class="a11y-btn" id="btn-reset">Réinitialiser</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header id="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#main-content" class="logo" aria-label="Nazim Mellouk – Retour à l'accueil">
+        <span class="logo-name">NM</span>
+      </a>
+
+      <nav id="main-nav" aria-label="Navigation principale">
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="nav-links"
+          aria-label="Ouvrir le menu de navigation"
+        >
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+        <ul id="nav-links" role="list">
+          <li><a href="#about" aria-current="false">À propos</a></li>
+          <li><a href="#skills" aria-current="false">Compétences</a></li>
+          <li><a href="#projects" aria-current="false">Projets</a></li>
+          <li><a href="#education" aria-current="false">Formation</a></li>
+          <li><a href="#contact" aria-current="false">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a
+        href="documents/CV-Nazim_MELLOUK.pdf"
+        class="btn btn-outline btn-sm"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Télécharger mon CV (PDF, nouvelle fenêtre)"
+      >
+        CV <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== FIL D'ARIANE (mis à jour dynamiquement selon la section visible) ===== -->
+  <nav class="breadcrumb-bar" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol class="breadcrumb" id="breadcrumb-list">
+        <li><a href="#hero" aria-current="page">Accueil</a></li>
+        <li id="breadcrumb-current"></li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- ===== MAIN ===== -->
+  <main id="main-content">
+
+    <!-- ─── HERO ─── -->
+    <section id="hero" aria-labelledby="hero-heading">
+      <div class="container hero-inner">
+
+        <div class="hero-text">
+          <p class="hero-eyebrow">Alternance M2 · Île-de-France · Septembre 2026</p>
+          <h1 id="hero-heading">
+            Développement,<br>
+            <span class="hero-accent">UX/UI</span> &amp;<br>
+            Accessibilité numérique
+          </h1>
+          <p class="hero-sub">
+            Je conçois et développe des solutions web et mobiles centrées utilisateur,
+            avec une attention particulière à l'accessibilité et à l'expérience d'usage.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+            <a
+              href="documents/CV-Nazim_MELLOUK.pdf"
+              class="btn btn-outline"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Télécharger mon CV (PDF)"
+            >
+              Télécharger le CV
+            </a>
+            <a
+              href="documents/lettre_motivation-Nazim_MELLOUK.pdf"
+              class="btn btn-outline"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Télécharger ma lettre de motivation (PDF)"
+            >
+              Télécharger la lettre de motivation
+            </a>
+            <a href="#contact" class="btn btn-ghost">Me contacter</a>
+          </div>
+          <ul class="hero-tags" aria-label="Technologies principales">
+            <li>React</li>
+            <li>PHP</li>
+            <li>Kotlin</li>
+            <li>Figma</li>
+            <li>RGAA</li>
+            <li>WCAG 2.2</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-avatar-wrapper">
+            <!-- Remplacer src par votre vraie photo -->
+            <img
+              src="assets/images/photo-nazim.png"
+              alt="Photo de profil de Nazim Mellouk"
+              width="480"
+              height="480"
+              class="hero-avatar"
+              loading="eager"
+            />
+            <div class="hero-badge">
+              <span class="badge-dot" aria-hidden="true"></span>
+              Disponible sept. 2026
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── À PROPOS ─── -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+
+        <div class="section-header">
+          <p class="section-eyebrow">Mon parcours</p>
+          <h2 id="about-heading">À propos</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              Étudiant en Master MIASHS – Technologies et Handicap à l'Université Paris 8,
+              je me forme à l'intersection du développement d'applications, de la conception
+              d'interfaces et de l'accessibilité numérique.
+            </p>
+            <p>
+              Mon parcours part d'une solide base en informatique — licence systèmes,
+              bachelor développement d'applications — et évolue vers une approche centrée
+              utilisateur : comprendre les besoins, concevoir des interfaces claires,
+              développer des solutions fonctionnelles, et les rendre accessibles à tous.
+            </p>
+            <p>
+              Ce qui me distingue, c'est la capacité à aborder un projet sur trois axes
+              simultanément : technique (développement), fonctionnel (UX/UI), et inclusif
+              (accessibilité RGAA/WCAG). Ce triptyque est rare et très concret dans mes
+              projets académiques réels.
+            </p>
+            <p>
+              Je recherche une alternance de Master 2 à partir de septembre 2026 en
+              Île-de-France, pour contribuer à des projets numériques à fort impact
+              utilisateur.
+            </p>
+          </div>
+
+          <div class="about-stats" aria-label="Chiffres clés">
+            <div class="stat-card">
+              <span class="stat-number">6</span>
+              <span class="stat-label">projets concrets</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">5</span>
+              <span class="stat-label">ans de formation</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">4</span>
+              <span class="stat-label">langues parlées</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">RGAA<br>WCAG</span>
+              <span class="stat-label">maîtrisé</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── COMPÉTENCES ─── -->
+    <section id="skills" aria-labelledby="skills-heading" class="section-alt">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Ce que je sais faire</p>
+          <h2 id="skills-heading">Compétences</h2>
+        </div>
+
+        <div class="skills-grid">
+
+          <div class="skill-group">
+            <div class="skill-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" width="24" height="24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <h3>Développement d'applications</h3>
+            <p>Web front-end, back-end, mobile Android, API REST et bases de données.</p>
+            <ul class="tag-list" aria-label="Technologies de développement">
+              <li>HTML5 / CSS3</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>PHP</li>
+              <li>Node.js</li>
+              <li>Express.js</li>
+              <li>Kotlin</li>
+              <li>Java</li>
+              <li>Python</li>
+              <li>MySQL</li>
+              <li>C</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" width="24" height="24"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+            </div>
+            <h3>UX/UI &amp; Conception centrée utilisateur</h3>
+            <p>De la recherche utilisateur au prototype testable, avec une approche structurée.</p>
+            <ul class="tag-list" aria-label="Outils UX/UI">
+              <li>Figma</li>
+              <li>Design Thinking</li>
+              <li>IHM</li>
+              <li>Wireframing</li>
+              <li>Prototypage</li>
+              <li>Personas</li>
+              <li>Heuristiques Nielsen</li>
+              <li>Miro</li>
+              <li>Responsive design</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" width="24" height="24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            </div>
+            <h3>Accessibilité numérique</h3>
+            <p>Intégrée dès la conception, pas ajoutée en fin de projet.</p>
+            <ul class="tag-list" aria-label="Outils et standards d'accessibilité">
+              <li>RGAA 4.1</li>
+              <li>WCAG 2.2 AA</li>
+              <li>WAI-ARIA</li>
+              <li>WAVE</li>
+              <li>Axe DevTools</li>
+              <li>NVDA</li>
+              <li>VoiceOver</li>
+              <li>W3C Validator</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" width="24" height="24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            </div>
+            <h3>Systèmes &amp; Outils</h3>
+            <p>Environnements de développement professionnels et outillage moderne.</p>
+            <ul class="tag-list" aria-label="Outils et systèmes">
+              <li>Git / GitHub</li>
+              <li>Linux / Bash</li>
+              <li>VS Code</li>
+              <li>Android Studio</li>
+              <li>IntelliJ IDEA</li>
+              <li>OpenSCAD</li>
+              <li>Canva</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PROJETS PRINCIPAUX ─── -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Réalisations concrètes</p>
+          <h2 id="projects-heading">Projets principaux</h2>
+          <p class="section-intro">Des projets réels, développés pour de vraies organisations ou dans un contexte académique structuré.</p>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- PROJET 1 — CBF -->
+          <article class="project-card project-featured" aria-labelledby="proj-cbf-title">
+            <div class="project-img-wrapper">
+              <img
+                src="assets/images/projet-cbf.png"
+                alt="Page d'accueil du site CBF avec navigation, bouton accessibilité et hero section"
+                width="1280"
+                height="720"
+                loading="lazy"
+                class="project-img"
+              />
+              <span class="project-badge">En ligne</span>
+            </div>
+            <div class="project-content">
+              <p class="project-type">Site web accessible · Projet réel · Master MIASHS</p>
+              <h3 id="proj-cbf-title">Site accessible – CBF</h3>
+              <p class="project-desc">
+                Conception et développement complet d'un site web pour le Réseau Citoyen
+                de la Coordination des Berbères de France — partie publique, interface
+                d'administration, base de données, conformité RGAA/WCAG 2.1 AA.
+              </p>
+              <ul class="tag-list" aria-label="Technologies utilisées">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>PHP</li>
+                <li>MySQL</li>
+                <li>RGAA</li>
+              </ul>
+              <div class="project-highlights">
+                <span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg> Projet réel (association)</span>
+                <span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg> Site en ligne</span>
+                <span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg> Admin + BDD</span>
+                <span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg> Audit RGAA 21/25</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://handiman.univ-paris8.fr/~nazim/cbf/" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Voir le site CBF en ligne (nouvelle fenêtre)">Voir le site</a>
+                <a href="https://github.com/Nazim-M999/site_CBF" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Code source CBF sur GitHub (nouvelle fenêtre)">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJET 2 — RSE -->
+          <article class="project-card" aria-labelledby="proj-rse-title">
+            <div class="project-img-wrapper">
+              <img
+                src="assets/images/projet-rse.png"
+                alt="Interface de la plateforme RSE avec tableau de bord, formulaire d'ajout d'action et liste d'actions"
+                width="1280"
+                height="720"
+                loading="lazy"
+                class="project-img"
+              />
+            </div>
+            <div class="project-content">
+              <p class="project-type">Application web · Projet fin d'études · Bachelor ECE</p>
+              <h3 id="proj-rse-title">Plateforme RSE</h3>
+              <p class="project-desc">
+                Application web full-stack pour gérer et suivre des actions RSE : tableau
+                de bord, planning, statistiques, newsletters, authentification, API REST
+                avec React front-end et Node.js/Express back-end.
+              </p>
+              <ul class="tag-list" aria-label="Technologies utilisées">
+                <li>React</li>
+                <li>Node.js</li>
+                <li>Express.js</li>
+                <li>MySQL</li>
+                <li>Axios</li>
+                <li>REST API</li>
+              </ul>
+              <div class="project-actions">
+                <a href="https://github.com/Nazim-M999/RSE_Project" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Code source Plateforme RSE sur GitHub (nouvelle fenêtre)">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJET 3 — ManagePass -->
+          <article class="project-card" aria-labelledby="proj-managepass-title">
+            <div class="project-img-wrapper">
+              <img
+                src="assets/images/projet-managepass.jpeg"
+                alt="Écran de l'application ManagePass avec illustration de cadenas et bouton d'action"
+                width="760"
+                height="1600"
+                loading="lazy"
+                class="project-img project-img-contain"
+              />
+            </div>
+            <div class="project-content">
+              <p class="project-type">Application mobile Android · Bachelor ECE</p>
+              <h3 id="proj-managepass-title">ManagePass</h3>
+              <p class="project-desc">
+                Application Android de gestion sécurisée de mots de passe. Interface
+                mobile moderne, stockage sécurisé des identifiants, conception UX
+                orientée facilité d'usage.
+              </p>
+              <ul class="tag-list" aria-label="Technologies utilisées">
+                <li>Kotlin</li>
+                <li>Android Studio</li>
+                <li>Mobile UX</li>
+              </ul>
+              <div class="project-actions">
+                <a href="https://github.com/Nazim-M999/managepass" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Code source ManagePass sur GitHub (nouvelle fenêtre)">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJET 4 — Unis Pour Elle -->
+          <article class="project-card" aria-labelledby="proj-upe-title">
+            <div class="project-img-wrapper">
+              <img
+                src="assets/images/projet-unispourelle.png"
+                alt="Maquette responsive de la plateforme Unis Pour Elle avec header, navigation, hero section et identité visuelle rose"
+                width="1280"
+                height="720"
+                loading="lazy"
+                class="project-img"
+              />
+            </div>
+            <div class="project-content">
+              <p class="project-type">Conception UX/UI · Master MIASHS</p>
+              <h3 id="proj-upe-title">Unis Pour Elle</h3>
+              <p class="project-desc">
+                Conception UX/UI d'une plateforme de soutien pour les personnes touchées
+                par le cancer du sein. Approche Design Thinking, personas, heuristiques
+                de Nielsen, maquettes responsive sous Figma.
+              </p>
+              <ul class="tag-list" aria-label="Méthodes et outils utilisés">
+                <li>Figma</li>
+                <li>Design Thinking</li>
+                <li>IHM</li>
+                <li>Personas</li>
+                <li>Prototypage</li>
+              </ul>
+              <div class="project-actions">
+                <a href="https://www.figma.com/design/VbbGmahZPiVhiwxkzpbS0t/Unis-pour-elle?node-id=0-1&t=Uvik6Ik59yh30u9j-1" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Voir la maquette Unis Pour Elle sur Figma (nouvelle fenêtre)">Voir la maquette</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PROJETS COMPLÉMENTAIRES ─── -->
+    <section id="projects-extra" aria-labelledby="projects-extra-heading" class="section-alt">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Explorations &amp; bonus</p>
+          <h2 id="projects-extra-heading">Projets complémentaires</h2>
+        </div>
+
+        <div class="extra-grid">
+
+          <!-- PROJET — MesDoc -->
+          <article class="project-card extra-card" aria-labelledby="proj-mesdoc-title">
+            <div class="project-img-wrapper">
+              <img
+                src="assets/images/projet-mesdoc.png"
+                alt="Maquette de l'application MesDoc présentant un dossier médical numérisé"
+                width="717"
+                height="583"
+                loading="lazy"
+                class="project-img"
+              />
+              <span class="project-badge project-badge--bonus">Bonus</span>
+            </div>
+            <div class="project-content">
+              <p class="project-type">UX/UI · Santé numérique</p>
+              <h3 id="proj-mesdoc-title">MesDoc</h3>
+              <p class="project-desc">Application de consultation de dossiers médicaux numérisés. Exploration UX dans le domaine de la santé : clarté de l'information, données sensibles, parcours utilisateur.</p>
+              <ul class="tag-list" aria-label="Technologies utilisées">
+                <li>Figma</li>
+                <li>UX santé</li>
+                <li>Prototypage</li>
+              </ul>
+              <div class="project-actions">
+                <a href="https://www.figma.com/design/2Xq1RFPnX4J246uWoZNWxY/Projet-Sant%C3%A9--Copy-?node-id=0-1&t=aoRNXqzqzFvNiaM8-1" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer" aria-label="Voir la maquette MesDoc sur Figma (nouvelle fenêtre)">Voir Figma</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJET — Pilulier 3D -->
+          <article class="project-card extra-card" aria-labelledby="proj-pilulier-title">
+            <div class="project-img-wrapper">
+              <img
+                src="assets/images/projet-pillulier.webp"
+                alt="Pilulier accessible imprimé en 3D avec quatre compartiments colorés et pictogrammes en relief"
+                width="1328"
+                height="613"
+                loading="lazy"
+                class="project-img"
+              />
+              <span class="project-badge project-badge--bonus">Bonus</span>
+            </div>
+            <div class="project-content">
+              <p class="project-type">Conception inclusive · Prototypage physique · Master MIASHS</p>
+              <h3 id="proj-pilulier-title">Pilulier accessible imprimé en 3D</h3>
+              <p class="project-desc">Prototypage d'un pilulier accessible (matin/midi/soir/nuit) pour personnes ayant des difficultés d'autonomie, de vision ou de motricité. Pictogrammes et texte en relief, quatre compartiments colorés.</p>
+              <ul class="tag-list" aria-label="Technologies utilisées">
+                <li>OpenSCAD</li>
+                <li>Impression 3D</li>
+                <li>Conception inclusive</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FOCUS ACCESSIBILITÉ ─── -->
+    <section id="accessibility" aria-labelledby="a11y-section-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Une compétence différenciante</p>
+          <h2 id="a11y-section-heading">Accessibilité numérique</h2>
+          <p class="section-intro">
+            L'accessibilité n'est pas une contrainte que j'applique en fin de projet.
+            C'est une approche que j'intègre dès la conception.
+          </p>
+        </div>
+
+        <div class="a11y-grid">
+          <div class="a11y-feature">
+            <div class="a11y-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" width="22" height="22"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1"></rect><path d="M9 13l2 2 4-4"></path></svg>
+            </div>
+            <h3>Standards maîtrisés</h3>
+            <p>RGAA 4.1, WCAG 2.2 niveau AA, WAI-ARIA — appliqués sur des projets réels, pas seulement théoriques.</p>
+          </div>
+          <div class="a11y-feature">
+            <div class="a11y-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" width="22" height="22"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+            <h3>Audit et tests</h3>
+            <p>Utilisation de WAVE, Axe DevTools, W3C Validator, NVDA et VoiceOver pour auditer et corriger les défauts d'accessibilité.</p>
+          </div>
+          <div class="a11y-feature">
+            <div class="a11y-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+            </div>
+            <h3>Intégrée au développement</h3>
+            <p>HTML sémantique, ARIA, focus visible, navigation clavier, contrastes conformes — présents dans tous mes projets.</p>
+          </div>
+          <div class="a11y-feature">
+            <div class="a11y-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" width="22" height="22"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <h3>Résultats concrets</h3>
+            <p>Audit RGAA du site CBF : 21 critères conformes / 25 évalués, 0 non-conforme. Réalisé via la plateforme ARA.</p>
+          </div>
+        </div>
+
+        <div class="a11y-tools" aria-label="Outils d'accessibilité maîtrisés">
+          <h3 class="sr-only">Outils utilisés</h3>
+          <ul class="tag-list tag-list-centered">
+            <li>RGAA 4.1</li>
+            <li>WCAG 2.2 AA</li>
+            <li>WAI-ARIA</li>
+            <li>WAVE</li>
+            <li>Axe DevTools</li>
+            <li>NVDA</li>
+            <li>VoiceOver</li>
+            <li>W3C Validator</li>
+            <li>Plateforme ARA</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FORMATION ─── -->
+    <section id="education" aria-labelledby="education-heading" class="section-alt">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Mon parcours académique</p>
+          <h2 id="education-heading">Formation</h2>
+        </div>
+
+        <ol class="timeline" aria-label="Parcours de formation chronologique">
+
+          <li class="timeline-item timeline-current">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-date">2025 – 2027</span>
+                <span class="badge badge-current">En cours</span>
+              </div>
+              <h3>Master MIASHS – Technologies et Handicap</h3>
+              <p class="timeline-school">Université Paris 8 Vincennes – Saint-Denis</p>
+              <ul class="timeline-skills">
+                <li>Développement web et bases de données</li>
+                <li>UX/UI, IHM et conception d'interfaces</li>
+                <li>Accessibilité numérique RGAA/WCAG</li>
+                <li>Gestion de projet numérique</li>
+                <li>Technologies pour l'autonomie et l'inclusion</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-date">2024 – 2025</span>
+              </div>
+              <h3>Bachelor Développement d'Applications</h3>
+              <p class="timeline-school">ECE Paris</p>
+              <ul class="timeline-skills">
+                <li>Développement d'applications web et mobiles</li>
+                <li>Architecture logicielle et bases de données</li>
+                <li>UX/UI et conception d'interfaces</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-date">2020 – 2023</span>
+              </div>
+              <h3>Licence Systèmes Informatiques</h3>
+              <p class="timeline-school">Université Mouloud Mammeri de Tizi-Ouzou</p>
+              <ul class="timeline-skills">
+                <li>Algorithmique et programmation</li>
+                <li>Bases de données et conception logicielle</li>
+                <li>Systèmes d'exploitation et Linux</li>
+              </ul>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- ─── DISPONIBILITÉ / CV ─── -->
+    <section id="availability" aria-labelledby="availability-heading">
+      <div class="container">
+        <div class="availability-card">
+          <div class="availability-text">
+            <h2 id="availability-heading">Disponible pour une alternance</h2>
+            <p>Je recherche une alternance de <strong>Master 2</strong> à partir de <strong>septembre 2026</strong>, en <strong>Île-de-France</strong>, dans le développement d'applications, l'UX/UI ou l'accessibilité numérique.</p>
+            <p>Mon profil polyvalent me permet de contribuer aussi bien sur la partie technique que sur la conception centrée utilisateur.</p>
+          </div>
+          <div class="availability-actions">
+            <a
+              href="documents/CV-Nazim_MELLOUK.pdf"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Télécharger le CV de Nazim Mellouk (PDF)"
+            >
+              Télécharger le CV
+            </a>
+            <a
+              href="documents/lettre_motivation-Nazim_MELLOUK.pdf"
+              class="btn btn-outline"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Télécharger ma lettre de motivation (PDF)"
+            >
+              Télécharger la lettre de motivation
+            </a>
+            <a href="#contact" class="btn btn-outline">Me contacter</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CONTACT ─── -->
+    <section id="contact" aria-labelledby="contact-heading" class="section-alt">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Travaillons ensemble</p>
+          <h2 id="contact-heading">Contact</h2>
+          <p class="section-intro">Une opportunité d'alternance ? N'hésitez pas à me contacter.</p>
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="contact-links" aria-label="Moyens de contact">
+            <a href="mailto:nm2436101@gmail.com" class="contact-link" aria-label="Envoyer un email à Nazim Mellouk">
+              <span class="contact-icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22 6 12 13 2 6"></polyline></svg>
+              </span>
+              <div>
+                <strong>Email</strong>
+                <span>nm2436101@gmail.com</span>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/nazim-mellouk-335252331" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn de Nazim Mellouk (nouvelle fenêtre)">
+              <span class="contact-icon" aria-hidden="true">in</span>
+              <div>
+                <strong>LinkedIn</strong>
+                <span>Nazim Mellouk</span>
+              </div>
+            </a>
+            <a href="https://github.com/Nazim-M999/" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub de Nazim Mellouk (nouvelle fenêtre)">
+              <span class="contact-icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" width="20" height="20"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </span>
+              <div>
+                <strong>GitHub</strong>
+                <span>Nazim-M999</span>
+              </div>
+            </a>
+            <a href="tel:+33744410090" class="contact-link" aria-label="Appeler Nazim Mellouk au 07 44 41 00 90">
+              <span class="contact-icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" width="20" height="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </span>
+              <div>
+                <strong>Téléphone</strong>
+                <span>07 44 41 00 90</span>
+              </div>
+            </a>
+          </div>
+
+          <form class="contact-form" id="contact-form" novalidate aria-label="Formulaire de contact">
+            <div class="form-group">
+              <label for="contact-name">Nom <span aria-hidden="true">*</span><span class="sr-only">(obligatoire)</span></label>
+              <input
+                type="text"
+                id="contact-name"
+                name="name"
+                autocomplete="name"
+                required
+                aria-required="true"
+                aria-describedby="name-error"
+              />
+              <span id="name-error" class="form-error" role="alert" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email <span aria-hidden="true">*</span><span class="sr-only">(obligatoire)</span></label>
+              <input
+                type="email"
+                id="contact-email"
+                name="email"
+                autocomplete="email"
+                required
+                aria-required="true"
+                aria-describedby="email-error"
+              />
+              <span id="email-error" class="form-error" role="alert" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message <span aria-hidden="true">*</span><span class="sr-only">(obligatoire)</span></label>
+              <textarea
+                id="contact-message"
+                name="message"
+                rows="5"
+                required
+                aria-required="true"
+                aria-describedby="message-error"
+              ></textarea>
+              <span id="message-error" class="form-error" role="alert" aria-live="polite"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Envoyer le message
+            </button>
+            <div id="form-status" role="status" aria-live="polite" class="form-status"></div>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>
+        <strong>Nazim Mellouk</strong> · Développement · UX/UI · Accessibilité numérique
+      </p>
+      <p class="footer-links">
+        <a href="mailto:nm2436101@gmail.com" aria-label="Email de contact">nm2436101@gmail.com</a>
+        ·
+        <a href="https://www.linkedin.com/in/nazim-mellouk-335252331" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (nouvelle fenêtre)">LinkedIn</a>
+        ·
+        <a href="https://github.com/Nazim-M999/" target="_blank" rel="noopener noreferrer" aria-label="GitHub (nouvelle fenêtre)">GitHub</a>
+      </p>
+      <p class="footer-note">Portfolio conçu et développé par Nazim Mellouk · Conforme WCAG 2.2 AA</p>
+    </div>
+  </footer>
+
+  <!-- ===== RETOUR EN HAUT DE PAGE ===== -->
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Revenir en haut de page" tabindex="-1" aria-hidden="true">
+    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
