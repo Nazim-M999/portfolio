@@ -1843,13 +1843,18 @@ p {
 
   /* Sur petit écran, les flèches se posent sur la photo (pas de place
      pour flotter à l'extérieur de la carte) : un espace de 12px évite
-     qu'elles ne touchent le coin arrondi de l'image. */
+     qu'elles ne touchent le coin arrondi de l'image. La flèche "suivant"
+     est positionnée avec "left" (calculé depuis la largeur de la carte)
+     plutôt que "right" (calculé depuis la largeur du carrousel, qui
+     inclut l'aperçu de la carte suivante) : les deux flèches encadrent
+     ainsi exactement la largeur d'une boîte de projet, pas plus. */
   .carousel-btn--prev {
     left: var(--space-3);
   }
 
   .carousel-btn--next {
-    right: var(--space-3);
+    left: calc(min(420px, 85vw) - 44px - var(--space-3));
+    right: auto;
   }
 
   .about-stats {
