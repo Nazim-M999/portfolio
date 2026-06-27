@@ -138,6 +138,7 @@ const A11Y = {
 const NAV = {
   toggle: document.querySelector('.nav-toggle'),
   links: document.getElementById('nav-links'),
+  backdrop: document.getElementById('nav-backdrop'),
 
   init() {
     if (!this.toggle || !this.links) return;
@@ -152,6 +153,11 @@ const NAV = {
       link.addEventListener('click', () => this.setOpen(false));
     });
 
+    // Fermer au clic sur le fond assombri (en dehors du tiroir)
+    if (this.backdrop) {
+      this.backdrop.addEventListener('click', () => this.setOpen(false));
+    }
+
     // Fermer avec Échap
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && this.links.classList.contains('open')) {
@@ -165,8 +171,12 @@ const NAV = {
     this.toggle.setAttribute('aria-expanded', String(open));
     this.links.classList.toggle('open', open);
     this.toggle.setAttribute('aria-label', open ? 'Fermer le menu de navigation' : 'Ouvrir le menu de navigation');
-    // Empêche le défilement de la page derrière le panneau plein écran
+    // Empêche le défilement de la page derrière le tiroir de navigation
     document.body.classList.toggle('nav-open', open);
+
+    if (this.backdrop) {
+      this.backdrop.classList.toggle('open', open);
+    }
   }
 };
 

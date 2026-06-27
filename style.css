@@ -191,6 +191,12 @@ img, svg, video, picture {
   max-width: 100%;
 }
 
+/* Fond du tiroir de navigation mobile : inerte par défaut (desktop, et
+   menu fermé), réactivé uniquement dans la media query mobile. */
+#nav-backdrop {
+  display: none;
+}
+
 section {
   padding: var(--space-20) 0;
 }
@@ -1625,20 +1631,41 @@ p {
     background-color: var(--color-bg);
   }
 
-  #nav-links {
-    display: none;
+  /* Fond assombri cliquable derrière le tiroir. display reste constant
+     (jamais "none") pour que la transition d'opacité fonctionne ; c'est
+     "visibility" + "pointer-events" qui le rendent inerte une fois fermé. */
+  #nav-backdrop {
+    display: block;
     position: fixed;
-    /* top/right/bottom/left explicites plutôt que le raccourci "inset" :
-       certains navigateurs mobiles plus anciens ne reconnaissent pas
-       "inset" et ignorent alors toute la règle, ce qui repositionnait le
-       panneau dans le flux normal (à l'intérieur du header, écrasé sur
-       une seule ligne) au lieu de couvrir l'écran — d'où l'impression
-       qu'un seul lien était "affiché". */
     top: var(--header-height);
     right: 0;
     bottom: 0;
     left: 0;
-    width: 100%;
+    background: rgba(15, 23, 42, 0.4);
+    z-index: 898;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--transition-base), visibility var(--transition-base);
+  }
+
+  #nav-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* Tiroir latéral (et non plus un panneau plein écran) : il ne couvre
+     qu'une partie de la largeur, le reste de la page reste visible
+     (assombri) derrière, et un clic en dehors referme le menu. */
+  #nav-links {
+    display: flex;
+    position: fixed;
+    top: var(--header-height);
+    right: 0;
+    bottom: 0;
+    left: auto;
+    width: min(82%, 320px);
     background: var(--color-bg);
     flex-direction: column;
     align-items: stretch;
@@ -1647,11 +1674,15 @@ p {
     z-index: 899;
     overflow-y: auto;
     padding: var(--space-4);
-    box-shadow: 0 16px 24px -8px rgba(15, 23, 42, 0.12);
+    box-shadow: -16px 0 32px -8px rgba(15, 23, 42, 0.18);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform var(--transition-base), visibility var(--transition-base);
   }
 
   #nav-links.open {
-    display: flex;
+    transform: translateX(0);
+    visibility: visible;
   }
 
   #nav-links li {
