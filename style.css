@@ -687,7 +687,10 @@ p {
 #hero::before {
   content: '';
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: -1;
   background:
     radial-gradient(540px circle at 88% 8%, rgba(var(--color-primary-rgb), 0.10), transparent 60%),
@@ -803,6 +806,12 @@ p {
 .badge-dot {
   width: 8px;
   height: 8px;
+  /* Sans flex-shrink:0, un flex item garde sa hauteur (height) mais peut
+     voir sa largeur (width) réduite par Flexbox quand l'espace manque
+     (ex. texte du badge passant sur 2 lignes sur petit écran) : le cercle
+     devient alors un ovale. flex-shrink:0 fige sa taille dans les deux
+     dimensions. */
+  flex-shrink: 0;
   background-color: var(--color-success);
   border-radius: 50%;
   animation: pulse-dot 2s infinite;
@@ -1581,7 +1590,17 @@ p {
   #nav-links {
     display: none;
     position: fixed;
-    inset: var(--header-height) 0 0 0;
+    /* top/right/bottom/left explicites plutôt que le raccourci "inset" :
+       certains navigateurs mobiles plus anciens ne reconnaissent pas
+       "inset" et ignorent alors toute la règle, ce qui repositionnait le
+       panneau dans le flux normal (à l'intérieur du header, écrasé sur
+       une seule ligne) au lieu de couvrir l'écran — d'où l'impression
+       qu'un seul lien était "affiché". */
+    top: var(--header-height);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background: var(--color-bg);
     flex-direction: column;
     align-items: center;
