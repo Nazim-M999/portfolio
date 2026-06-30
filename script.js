@@ -72,6 +72,15 @@ const A11Y = {
     this.prefs.fontScale = Math.min(1.5, Math.max(0.75, +(this.prefs.fontScale + delta).toFixed(2)));
     this.root.style.setProperty('--user-font-scale', this.prefs.fontScale);
     localStorage.setItem('a11y-font-scale', this.prefs.fontScale);
+    this.updateSizeIndicator();
+  },
+
+  updateSizeIndicator() {
+    const el = document.querySelector('.a11y-size-indicator');
+    if (!el) return;
+    // 0.75 → 0%  /  1.0 → 33%  /  1.5 → 100%
+    const pct = ((this.prefs.fontScale - 0.75) / (1.5 - 0.75)) * 100;
+    el.style.width = pct + '%';
   },
 
   toggle(pref, btnId, cssClass) {
@@ -116,6 +125,9 @@ const A11Y = {
     sync('btn-dark', this.prefs.darkMode);
     sync('btn-no-anim', this.prefs.noAnimations);
     sync('btn-underline', this.prefs.underlineLinks);
+
+    // Indicateur visuel taille de texte
+    this.updateSizeIndicator();
   },
 
   reset() {
@@ -254,14 +266,11 @@ const SCROLL_SPY = {
     contact: 'Contact'
   },
 
-  breadcrumbHome: document.querySelector('#breadcrumb-list a[href="#hero"]'),
-  breadcrumbCurrent: document.getElementById('breadcrumb-current'),
-
   init() {
     this.sections = Array.from(document.querySelectorAll('main section[id]'));
     this.navLinks = Array.from(document.querySelectorAll('#nav-links a'));
 
-    const headerOffset = window.innerWidth <= 768 ? 90 : 140;
+    const headerOffset = window.innerWidth <= 768 ? 80 : 100;
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -279,34 +288,27 @@ const SCROLL_SPY = {
       const isActive = link.getAttribute('href') === `#${id}`;
       link.setAttribute('aria-current', isActive ? 'true' : 'false');
     });
-
-    if (!this.breadcrumbHome || !this.breadcrumbCurrent) return;
-
-    if (id === 'hero') {
-      this.breadcrumbCurrent.hidden = true;
-      this.breadcrumbCurrent.removeAttribute('aria-current');
-      this.breadcrumbHome.setAttribute('aria-current', 'page');
-    } else {
-      this.breadcrumbCurrent.hidden = false;
-      this.breadcrumbCurrent.textContent = this.labels[id] || '';
-      this.breadcrumbCurrent.setAttribute('aria-current', 'page');
-      this.breadcrumbHome.removeAttribute('aria-current');
-    }
   }
 };
 
 /* =========================================================
    HEADER SCROLL EFFECT
+   Transparent sur le hero → glass au-delà de 60px de scroll
    ========================================================= */
 
 function initHeaderScroll() {
   const header = document.getElementById('site-header');
   if (!header) return;
 
-  window.addEventListener('scroll', () => {
-    const scroll = window.scrollY;
-    header.style.boxShadow = scroll > 80 ? '0 2px 20px rgba(15, 23, 42, 0.08)' : '';
-  }, { passive: true });
+  const threshold = 60;
+
+  const update = () => {
+    header.classList.toggle('scrolled', window.scrollY > threshold);
+  };
+
+  // Appliquer immédiatement (cas d'un rechargement en milieu de page)
+  update();
+  window.addEventListener('scroll', update, { passive: true });
 }
 
 /* =========================================================
