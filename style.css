@@ -2619,29 +2619,29 @@ p {
     display: block !important;
   }
 
-  /* Tablette : positions adaptées à la photo centrée en haut */
+  /* Tablette : !important requis car les règles globales viennent après dans le CSS */
   .brand-badge--uxui {
-    top: 10%;
-    left: auto;
-    right: 8%;
+    top: 10% !important;
+    left: auto !important;
+    right: 8% !important;
   }
 
   .brand-badge--dev {
-    top: 6%;
-    right: 4%;
-    left: auto;
+    top: 6% !important;
+    right: 4% !important;
+    left: auto !important;
   }
 
   .brand-badge--a11y {
-    top: 32%;
-    left: 4%;
-    right: auto;
+    top: 32% !important;
+    left: 4% !important;
+    right: auto !important;
   }
 
   /* Icônes légèrement plus petites sur tablette */
   .brand-badge .icon {
-    width: 36px;
-    height: 36px;
+    width: 36px !important;
+    height: 36px !important;
   }
 
   /* About: stats en ligne horizontale sur tablette */
@@ -2927,8 +2927,8 @@ p {
   }
 
   .brand-badge--a11y {
-    top: 28%;    /* à gauche de la photo, même hauteur */
-    left: 3%;
+    top: 18%;    /* à gauche de la photo, dans la zone image */
+    left: 4%;
     right: auto;
   }
 
