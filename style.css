@@ -2613,9 +2613,35 @@ p {
 
   /* Process: rangées déjà en 3 colonnes, rien à changer sur tablette */
 
-  /* Brand badges hero: masquer sur tablette */
+  /* Brand badges hero : visibles sur tablette/mobile, repositionnés
+     autour de la photo (qui passe en haut dans la colonne unique) */
   .hero-brand-badges {
-    display: none;
+    display: block !important;
+  }
+
+  /* Tablette : positions adaptées à la photo centrée en haut */
+  .brand-badge--uxui {
+    top: 10%;
+    left: auto;
+    right: 8%;
+  }
+
+  .brand-badge--dev {
+    top: 6%;
+    right: 4%;
+    left: auto;
+  }
+
+  .brand-badge--a11y {
+    top: 32%;
+    left: 4%;
+    right: auto;
+  }
+
+  /* Icônes légèrement plus petites sur tablette */
+  .brand-badge .icon {
+    width: 36px;
+    height: 36px;
   }
 
   /* About: stats en ligne horizontale sur tablette */
@@ -2885,6 +2911,31 @@ p {
   .hero-avatar {
     width: 220px;
     height: 270px;
+  }
+
+  /* Badges éparpillés autour de la photo (220×270px, centrée en haut) */
+  .brand-badge--uxui {
+    top: 24%;    /* à droite de la photo, milieu-hauteur */
+    right: 6%;
+    left: auto;
+  }
+
+  .brand-badge--dev {
+    top: 6%;     /* haut à droite */
+    right: 5%;
+    left: auto;
+  }
+
+  .brand-badge--a11y {
+    top: 28%;    /* à gauche de la photo, même hauteur */
+    left: 3%;
+    right: auto;
+  }
+
+  /* Icônes plus petites sur petit écran */
+  .brand-badge .icon {
+    width: 30px;
+    height: 30px;
   }
 
   .availability-actions {
