@@ -337,12 +337,18 @@
     <!-- ─── À PROPOS ─── -->
     <section id="about" aria-labelledby="about-heading">
       <div class="container">
+
+        <!-- Stickers centrés au-dessus du layout -->
+        <div class="section-stickers" aria-hidden="true">
+          <span class="sticker">Mon parcours</span>
+          <span class="sticker sticker--green">À propos</span>
+        </div>
+        <h2 id="about-heading" class="sr-only">À propos</h2>
+
         <div class="about-layout">
 
-          <!-- Colonne gauche : titre + texte -->
+          <!-- Colonne gauche : texte -->
           <div class="about-content">
-            <p class="section-eyebrow">Mon parcours</p>
-            <h2 id="about-heading">À propos</h2>
             <p>
               Étudiant en Master MIASHS – Technologies et Handicap à l'Université Paris 8,
               je me forme à l'intersection du développement d'applications, de la conception
@@ -395,8 +401,11 @@
     <section id="skills" aria-labelledby="skills-heading" class="section-alt">
       <div class="container">
         <div class="section-header">
-          <p class="section-eyebrow">Ce que je sais faire</p>
-          <h2 id="skills-heading">Compétences</h2>
+          <div class="section-stickers" aria-hidden="true">
+            <span class="sticker">Ce que je sais faire</span>
+            <span class="sticker sticker--green">Compétences</span>
+          </div>
+          <h2 id="skills-heading" class="sr-only">Compétences</h2>
         </div>
 
         <div class="skills-grid">
@@ -609,8 +618,11 @@
     <section id="projects" aria-labelledby="projects-heading">
       <div class="container">
         <div class="section-header">
-          <p class="section-eyebrow">Réalisations concrètes</p>
-          <h2 id="projects-heading">Projets principaux</h2>
+          <div class="section-stickers" aria-hidden="true">
+            <span class="sticker">Réalisations concrètes</span>
+            <span class="sticker sticker--green">Projets principaux</span>
+          </div>
+          <h2 id="projects-heading" class="sr-only">Projets principaux</h2>
           <p class="section-intro">Des projets réels, développés pour de vraies organisations ou dans un contexte académique structuré.</p>
         </div>
 
@@ -773,8 +785,11 @@
     <section id="projects-extra" aria-labelledby="projects-extra-heading" class="section-alt">
       <div class="container">
         <div class="section-header">
-          <p class="section-eyebrow">Explorations &amp; bonus</p>
-          <h2 id="projects-extra-heading">Projets complémentaires</h2>
+          <div class="section-stickers" aria-hidden="true">
+            <span class="sticker">Explorations &amp; bonus</span>
+            <span class="sticker sticker--green">Projets complémentaires</span>
+          </div>
+          <h2 id="projects-extra-heading" class="sr-only">Projets complémentaires</h2>
         </div>
 
         <div class="extra-grid">
@@ -841,8 +856,11 @@
       <div class="container">
 
         <div class="section-header">
-          <p class="section-eyebrow">Une compétence différenciante</p>
-          <h2 id="a11y-section-heading">Accessibilité numérique</h2>
+          <div class="section-stickers" aria-hidden="true">
+            <span class="sticker">Une compétence clé</span>
+            <span class="sticker sticker--green">Accessibilité numérique</span>
+          </div>
+          <h2 id="a11y-section-heading" class="sr-only">Accessibilité numérique</h2>
           <p class="section-intro">
             L'accessibilité n'est pas une contrainte que j'applique en fin de projet.
             C'est une approche que j'intègre dès la conception.
@@ -928,14 +946,19 @@
     <section id="education" aria-labelledby="education-heading" class="section-alt">
       <div class="container">
         <div class="section-header">
-          <p class="section-eyebrow">Mon parcours académique</p>
-          <h2 id="education-heading">Formation</h2>
+          <div class="section-stickers" aria-hidden="true">
+            <span class="sticker">Mon parcours académique</span>
+            <span class="sticker sticker--green">Formation</span>
+          </div>
+          <h2 id="education-heading" class="sr-only">Formation</h2>
         </div>
 
         <ol class="timeline" aria-label="Parcours de formation chronologique">
 
           <li class="timeline-item timeline-current">
-            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-dot" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.5 2.5 3 6 3s6-1.5 6-3v-4.5"/></svg>
+            </div>
             <div class="timeline-content">
               <div class="timeline-meta">
                 <span class="timeline-date">2025 – 2027</span>
@@ -943,44 +966,48 @@
               </div>
               <h3>Master MIASHS – Technologies et Handicap</h3>
               <p class="timeline-school">Université Paris 8 Vincennes – Saint-Denis</p>
-              <ul class="timeline-skills">
-                <li>Développement web et bases de données</li>
-                <li>UX/UI, IHM et conception d'interfaces</li>
-                <li>Accessibilité numérique RGAA/WCAG</li>
-                <li>Gestion de projet numérique</li>
-                <li>Technologies pour l'autonomie et l'inclusion</li>
+              <ul class="tag-list tag-list--compact" aria-label="Domaines étudiés">
+                <li>Développement web</li>
+                <li>UX/UI &amp; IHM</li>
+                <li>Accessibilité RGAA/WCAG</li>
+                <li>Gestion de projet</li>
+                <li>Autonomie &amp; inclusion</li>
               </ul>
             </div>
           </li>
 
           <li class="timeline-item">
-            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-dot" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.5 2.5 3 6 3s6-1.5 6-3v-4.5"/></svg>
+            </div>
             <div class="timeline-content">
               <div class="timeline-meta">
                 <span class="timeline-date">2024 – 2025</span>
               </div>
               <h3>Bachelor Développement d'Applications</h3>
               <p class="timeline-school">ECE Paris</p>
-              <ul class="timeline-skills">
-                <li>Développement d'applications web et mobiles</li>
-                <li>Architecture logicielle et bases de données</li>
-                <li>UX/UI et conception d'interfaces</li>
+              <ul class="tag-list tag-list--compact" aria-label="Domaines étudiés">
+                <li>Dev web &amp; mobile</li>
+                <li>Architecture logicielle</li>
+                <li>UX/UI</li>
               </ul>
             </div>
           </li>
 
           <li class="timeline-item">
-            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-dot" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.5 2.5 3 6 3s6-1.5 6-3v-4.5"/></svg>
+            </div>
             <div class="timeline-content">
               <div class="timeline-meta">
                 <span class="timeline-date">2020 – 2023</span>
               </div>
               <h3>Licence Systèmes Informatiques</h3>
               <p class="timeline-school">Université Mouloud Mammeri de Tizi-Ouzou</p>
-              <ul class="timeline-skills">
-                <li>Algorithmique et programmation</li>
-                <li>Bases de données et conception logicielle</li>
-                <li>Systèmes d'exploitation et Linux</li>
+              <ul class="tag-list tag-list--compact" aria-label="Domaines étudiés">
+                <li>Algorithmique</li>
+                <li>Bases de données</li>
+                <li>Linux</li>
               </ul>
             </div>
           </li>
@@ -993,11 +1020,24 @@
     <section id="availability" aria-labelledby="availability-heading">
       <div class="container">
         <div class="availability-card">
+
+          <!-- Cercles décoratifs (même famille que hero/footer) -->
+          <div class="availability-deco" aria-hidden="true">
+            <div class="availability-circle availability-circle--lg"></div>
+            <div class="availability-circle availability-circle--sm"></div>
+          </div>
+
           <div class="availability-text">
-            <h2 id="availability-heading">Disponible pour une alternance</h2>
+            <!-- Badge statut avec point pulsant -->
+            <span class="availability-badge">
+              <span class="badge-dot" aria-hidden="true"></span>
+              Disponible dès septembre 2026
+            </span>
+            <h2 id="availability-heading">Disponible pour une alternance M2</h2>
             <p>Je recherche une alternance de <strong>Master 2</strong> à partir de <strong>septembre 2026</strong>, en <strong>Île-de-France</strong>, dans le développement d'applications, l'UX/UI ou l'accessibilité numérique.</p>
             <p>Mon profil polyvalent me permet de contribuer aussi bien sur la partie technique que sur la conception centrée utilisateur.</p>
           </div>
+
           <div class="availability-actions">
             <a
               href="documents/CV-Nazim_MELLOUK.pdf"
@@ -1015,10 +1055,11 @@
               rel="noopener noreferrer"
               aria-label="Télécharger ma lettre de motivation (PDF)"
             >
-              Télécharger la lettre de motivation
+              Lettre de motivation
             </a>
             <a href="#contact" class="btn btn-outline">Me contacter</a>
           </div>
+
         </div>
       </div>
     </section>
@@ -1027,48 +1068,59 @@
     <section id="contact" aria-labelledby="contact-heading">
       <div class="container">
         <div class="section-header">
-          <p class="section-eyebrow">Travaillons ensemble</p>
-          <h2 id="contact-heading">Contact</h2>
+          <div class="section-stickers" aria-hidden="true">
+            <span class="sticker">Travaillons ensemble</span>
+            <span class="sticker sticker--green">Contact</span>
+          </div>
+          <h2 id="contact-heading" class="sr-only">Contact</h2>
           <p class="section-intro">Une opportunité d'alternance ? N'hésitez pas à me contacter.</p>
         </div>
 
         <div class="contact-grid">
 
           <div class="contact-links" aria-label="Moyens de contact">
+
             <a href="mailto:nm2436101@gmail.com" class="contact-link" aria-label="Envoyer un email à Nazim Mellouk">
               <span class="contact-icon" aria-hidden="true">
-                <svg class="icon" viewBox="0 0 24 24" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22 6 12 13 2 6"></polyline></svg>
+                <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
               </span>
               <div>
                 <strong>Email</strong>
                 <span>nm2436101@gmail.com</span>
               </div>
             </a>
+
             <a href="https://www.linkedin.com/in/nazim-mellouk-335252331" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn de Nazim Mellouk (nouvelle fenêtre)">
-              <span class="contact-icon" aria-hidden="true">in</span>
+              <span class="contact-icon" aria-hidden="true">
+                <!-- LinkedIn SVG — même famille Lucide, stroke 1.75 -->
+                <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </span>
               <div>
                 <strong>LinkedIn</strong>
                 <span>Nazim Mellouk</span>
               </div>
             </a>
+
             <a href="https://github.com/Nazim-M999/" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub de Nazim Mellouk (nouvelle fenêtre)">
               <span class="contact-icon" aria-hidden="true">
-                <svg class="icon" viewBox="0 0 24 24" width="20" height="20"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
               </span>
               <div>
                 <strong>GitHub</strong>
                 <span>Nazim-M999</span>
               </div>
             </a>
+
             <a href="tel:+33744410090" class="contact-link" aria-label="Appeler Nazim Mellouk au 07 44 41 00 90">
               <span class="contact-icon" aria-hidden="true">
-                <svg class="icon" viewBox="0 0 24 24" width="20" height="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </span>
               <div>
                 <strong>Téléphone</strong>
                 <span>07 44 41 00 90</span>
               </div>
             </a>
+
           </div>
 
           <form class="contact-form" id="contact-form" novalidate aria-label="Formulaire de contact">
@@ -1126,57 +1178,31 @@
   <footer id="site-footer" role="contentinfo">
     <div class="container footer-inner">
 
-      <!-- Badges identité — mêmes icônes que le hero, format 56 px -->
-      <div class="footer-brand" aria-hidden="true">
-
-        <div class="footer-brand-badge">
-          <div class="footer-brand-circle footer-brand-circle--uxui">
-            <svg class="icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2.5"/>
-              <path d="M3 9h18"/>
-              <path d="M9 21V9"/>
-            </svg>
-          </div>
-          <span class="footer-brand-label">UX/UI</span>
-        </div>
-
-        <div class="footer-brand-badge">
-          <div class="footer-brand-circle footer-brand-circle--dev">
-            <svg class="icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="4 17 10 11 4 5"/>
-              <line x1="12" y1="19" x2="20" y2="19"/>
-            </svg>
-          </div>
-          <span class="footer-brand-label">Dev</span>
-        </div>
-
-        <div class="footer-brand-badge">
-          <div class="footer-brand-circle footer-brand-circle--a11y">
-            <svg class="icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="5.5" r="2"/>
-              <path d="M12 7.5v3"/>
-              <path d="M7 10.5h10"/>
-              <path d="M12 10.5v2"/>
-              <path d="M12 12.5l-3 6"/>
-              <path d="M12 12.5l3 6"/>
-            </svg>
-          </div>
-          <span class="footer-brand-label">A11y</span>
-        </div>
-
+      <!-- Nom + positionnement -->
+      <div class="footer-identity">
+        <p class="footer-name">Nazim Mellouk</p>
+        <p class="footer-tagline">Développement · UX/UI · Accessibilité numérique</p>
       </div>
 
-      <p>
-        <strong>Nazim Mellouk</strong> · Développement · UX/UI · Accessibilité numérique
-      </p>
-      <p class="footer-links">
-        <a href="mailto:nm2436101@gmail.com" aria-label="Email de contact">nm2436101@gmail.com</a>
-        ·
-        <a href="https://www.linkedin.com/in/nazim-mellouk-335252331" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (nouvelle fenêtre)">LinkedIn</a>
-        ·
-        <a href="https://github.com/Nazim-M999/" target="_blank" rel="noopener noreferrer" aria-label="GitHub (nouvelle fenêtre)">GitHub</a>
-      </p>
+      <!-- Liens sociaux — icônes cohérentes avec le site -->
+      <nav class="footer-social" aria-label="Liens de contact et réseaux">
+        <a href="mailto:nm2436101@gmail.com" class="footer-social-link" aria-label="Envoyer un email à Nazim Mellouk">
+          <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/nazim-mellouk-335252331" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn de Nazim Mellouk (nouvelle fenêtre)">
+          <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://github.com/Nazim-M999/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub de Nazim Mellouk (nouvelle fenêtre)">
+          <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+      </nav>
+
+      <!-- Séparateur -->
+      <div class="footer-divider" aria-hidden="true"></div>
+
+      <!-- Mention -->
       <p class="footer-note">Portfolio conçu et développé par Nazim Mellouk · Conforme WCAG 2.2 AA</p>
+
     </div>
   </footer>
 
