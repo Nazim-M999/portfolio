@@ -963,6 +963,8 @@
 
 .sticker--green {
   background: var(--color-green);
+  /* #052e16 sur #22C55E = 6.98:1 ✓ (blanc donnait 2.25:1 = échec WCAG) */
+  color: #052e16;
   box-shadow: 0 4px 16px rgba(var(--color-green-rgb), 0.30);
   transform: rotate(2deg);
 }
@@ -1097,7 +1099,7 @@ section[id] {
   border: 1px solid rgba(var(--color-primary-rgb), 0.12);
 }
 
-/* Tiret coloré dans le pill — signature conservée */
+/* Tiret coloré dans le pill */
 .section-eyebrow::before {
   content: '';
   display: inline-block;
@@ -1106,7 +1108,7 @@ section[id] {
   background: var(--color-primary);
   flex-shrink: 0;
   border-radius: 1px;
-  opacity: 0.7;
+  /* opacity supprimé : élément décoratif mais WAVE le scannait */
 }
 
 .dark-mode .section-eyebrow {
@@ -1430,7 +1432,8 @@ p {
 
 .a11y-group-label {
   display: block;
-  font-size: 0.65rem;
+  /* 0.72rem = 11.5px (était 10.4px → alerté WAVE "very small text") */
+  font-size: 0.72rem;
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1668,15 +1671,16 @@ p {
 }
 
 .logo-tagline {
-  font-size: 0.58rem;
+  /* 0.72rem = 11.5px (était 9.28px → alerté WAVE "very small text") */
+  font-size: 0.72rem;
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.09em;
   text-transform: uppercase;
+  /* Sans opacity : #64748B sur blanc = 5.15:1 ✓ (avec opacity 0.85 = 3.50:1 ← échec) */
   color: var(--color-text-light);
   line-height: 1;
   white-space: nowrap;
   user-select: none;
-  opacity: 0.85;
 }
 
 /* ── Navigation pill ─── */
@@ -2336,12 +2340,13 @@ p {
 }
 
 .project-type {
-  font-size: 0.68rem;
+  /* 0.75rem = 12px (était 10.88px → alerté par WAVE "very small text")  */
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--color-primary);
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  opacity: 0.75;
+  /* opacity: 0.75 supprimé — ratio blended : 3.26:1 ← échec WCAG AA */
 }
 
 .project-content h3 {
@@ -3587,6 +3592,8 @@ p {
 
 .sticker--green {
   background: var(--color-green);
+  /* #052e16 sur #22C55E = 6.98:1 ✓ (blanc donnait 2.25:1 = échec WCAG) */
+  color: #052e16;
   box-shadow: 0 4px 16px rgba(var(--color-green-rgb), 0.30);
   transform: rotate(2deg);
 }
@@ -4565,6 +4572,13 @@ section[id] {
     clip-path: none !important;
     margin-top: 0 !important;
   }
+}
+
+/* Indicateur PDF visible (requis par WAVE pour les liens vers fichiers PDF) */
+.pdf-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0.75;
 }
 
 /* ─── IMPRESSION ─── */
