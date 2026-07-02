@@ -254,11 +254,13 @@
   --color-border-subtle: rgba(255, 255, 255, 0.05);
   --color-border-input:  #3C4D66;
 
-  /* Primaire — plus clair en dark pour accessibilité */
+  /* Primaire — adapté dark mode */
   --color-primary:        #3B82F6;
-  --color-primary-dark:   #60A5FA;   /* clair en dark (était trop sombre sur fond sombre) */
-  --color-primary-light:  #93C5FD;
-  --color-primary-darker: #2563EB;   /* valeur mid-tone pour dark mode */
+  --color-primary-dark:   #93C5FD;   /* clair → texte lisible sur fond sombre */
+  --color-primary-light:  #BFDBFE;
+  /* --color-primary-darker reste #1E3A8A (navy profond) :
+     la stat-card et la availability-card l'utilisent comme fond
+     et ont besoin qu'il reste sombre pour que le texte blanc passe */
 
   /* Float buttons en dark */
   --float-bg:          #25344A;
@@ -333,14 +335,14 @@
 /* ── Eyebrow pills (Alternance M2, Île-de-France, Septembre 2026) ── */
 .dark-mode .hero-eyebrow-item {
   background: rgba(59, 130, 246, 0.18);
-  color: #93C5FD;
+  color: #BFDBFE;  /* très clair pour contraste sur fond sombre */
   border-color: rgba(59, 130, 246, 0.30);
 }
 
 /* ── Tech tags (React, PHP, Kotlin…) ── */
 .dark-mode .hero-tags li {
   background: rgba(59, 130, 246, 0.12);
-  color: var(--color-primary-light);
+  color: #BFDBFE;
   border-color: rgba(59, 130, 246, 0.22);
 }
 
@@ -429,6 +431,27 @@
 /* ── Clips TYPE A en dark : var(--color-bg) = #1E293B s'adapte automatiquement ──
    (about::after, process::before/after, projects-extra::before/after,
     education::before/after, contact::before/after = var(--color-bg) → OK en dark) */
+
+/* ── Cartes bleues : garder un fond sombre en dark mode ──
+   La stat-card et la availability-card utilisent var(--color-primary-darker) dans
+   leur dégradé. Sans override explicite, si primary-darker change en dark mode,
+   les fonds deviennent trop clairs → texte semi-transparent échoue WCAG. */
+
+.dark-mode .a11y-stat-card {
+  background: linear-gradient(145deg, #0D1F5C 0%, #1E3A8A 100%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.50);
+}
+
+.dark-mode .availability-card {
+  background: linear-gradient(145deg, #0D1F5C 0%, #1D4ED8 100%);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.40);
+}
+
+/* Bouton primaire dans la carte disponibilité en dark :
+   fond blanc → texte doit être foncé (non le primary-dark = #93C5FD = trop clair) */
+.dark-mode .availability-card .btn-primary {
+  color: #1E3A8A; /* navy : 12.4:1 sur blanc ✓ */
+}
 
 /* ── TYPE A clips dark : var(--color-bg) = #1E293B → s'adapte automatiquement ──
    Les pseudo-éléments ::before / ::after des sections TYPE A utilisent
@@ -4574,11 +4597,10 @@ section[id] {
   }
 }
 
-/* Indicateur PDF visible (requis par WAVE pour les liens vers fichiers PDF) */
+/* Indicateur PDF visible — sans opacity pour respecter le contraste WCAG */
 .pdf-label {
   font-size: 0.75rem;
   font-weight: 500;
-  opacity: 0.75;
 }
 
 /* ─── IMPRESSION ─── */
