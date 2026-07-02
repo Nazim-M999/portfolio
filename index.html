@@ -37,6 +37,7 @@
 
     <!-- Bouton flottant — icône universelle d'accessibilité (ISO 7001) -->
     <button
+      type="button"
       id="a11y-toggle"
       aria-expanded="false"
       aria-controls="a11y-options"
@@ -56,7 +57,7 @@
     </button>
 
     <!-- Panneau des options -->
-    <div id="a11y-options" hidden role="dialog" aria-labelledby="a11y-heading">
+    <div id="a11y-options" hidden role="dialog" aria-modal="true" aria-labelledby="a11y-heading">
 
       <!-- En-tête du panneau -->
       <div class="a11y-panel-header">
@@ -64,7 +65,7 @@
           <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7" r="1.5"/><path d="M12 8.5v2.5"/><path d="M7 11h10"/><path d="M12 11v2.5"/><path d="M12 13.5l-2.5 5.5"/><path d="M12 13.5l2.5 5.5"/></svg>
           Accessibilité
         </span>
-        <button class="a11y-panel-close" aria-label="Fermer le panneau d'accessibilité" onclick="document.getElementById('a11y-toggle').click()">
+        <button type="button" class="a11y-panel-close" aria-label="Fermer le panneau d'accessibilité" onclick="document.getElementById('a11y-toggle').click()">
           <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </div>
@@ -73,14 +74,14 @@
       <div class="a11y-group" role="group" aria-labelledby="a11y-grp-text">
         <span class="a11y-group-label" id="a11y-grp-text">Taille du texte</span>
         <div class="a11y-row">
-          <button class="a11y-btn a11y-btn--size" id="btn-text-minus" aria-label="Diminuer la taille du texte">
+          <button type="button" class="a11y-btn a11y-btn--size" id="btn-text-minus" aria-label="Diminuer la taille du texte">
             <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
             <span>A</span>
           </button>
           <div class="a11y-size-track" aria-hidden="true">
             <div class="a11y-size-indicator"></div>
           </div>
-          <button class="a11y-btn a11y-btn--size" id="btn-text-plus" aria-label="Augmenter la taille du texte">
+          <button type="button" class="a11y-btn a11y-btn--size" id="btn-text-plus" aria-label="Augmenter la taille du texte">
             <span>A</span>
             <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </button>
@@ -91,7 +92,7 @@
       <div class="a11y-group" role="group" aria-labelledby="a11y-grp-display">
         <span class="a11y-group-label" id="a11y-grp-display">Affichage</span>
 
-        <button class="a11y-btn a11y-btn--toggle" id="btn-contrast" aria-pressed="false">
+        <button type="button" class="a11y-btn a11y-btn--toggle" id="btn-contrast" aria-pressed="false">
           <span class="a11y-btn-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" stroke-width="1.5"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" stroke="none"/></svg>
           </span>
@@ -99,7 +100,7 @@
           <span class="a11y-switch" aria-hidden="true"><span class="a11y-switch-thumb"></span></span>
         </button>
 
-        <button class="a11y-btn a11y-btn--toggle" id="btn-dark" aria-pressed="false">
+        <button type="button" class="a11y-btn a11y-btn--toggle" id="btn-dark" aria-pressed="false">
           <span class="a11y-btn-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </span>
@@ -107,7 +108,7 @@
           <span class="a11y-switch" aria-hidden="true"><span class="a11y-switch-thumb"></span></span>
         </button>
 
-        <button class="a11y-btn a11y-btn--toggle" id="btn-underline" aria-pressed="false">
+        <button type="button" class="a11y-btn a11y-btn--toggle" id="btn-underline" aria-pressed="false">
           <span class="a11y-btn-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v7a6 6 0 0 0 6 6 6 6 0 0 0 6-6V3"/><line x1="4" y1="21" x2="20" y2="21"/></svg>
           </span>
@@ -120,7 +121,7 @@
       <div class="a11y-group" role="group" aria-labelledby="a11y-grp-motion">
         <span class="a11y-group-label" id="a11y-grp-motion">Mouvement</span>
 
-        <button class="a11y-btn a11y-btn--toggle" id="btn-no-anim" aria-pressed="false">
+        <button type="button" class="a11y-btn a11y-btn--toggle" id="btn-no-anim" aria-pressed="false">
           <span class="a11y-btn-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
           </span>
@@ -130,7 +131,7 @@
       </div>
 
       <!-- Réinitialiser -->
-      <button class="a11y-btn a11y-btn--reset" id="btn-reset">
+      <button type="button" class="a11y-btn a11y-btn--reset" id="btn-reset">
         <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
         Réinitialiser tout
       </button>
@@ -150,6 +151,7 @@
 
       <nav id="main-nav" aria-label="Navigation principale">
         <button
+          type="button"
           class="nav-toggle"
           aria-expanded="false"
           aria-controls="nav-links"
@@ -510,7 +512,7 @@
         <div class="process-flow" role="list" aria-label="Les 6 étapes de ma démarche">
 
           <!-- ─ Rangée 1 : Analyse → Conception → Accessibilité ─ -->
-          <div class="process-row">
+          <div class="process-row" role="presentation">
 
             <div class="process-step" role="listitem">
               <div class="process-num-wrap" aria-hidden="true">
